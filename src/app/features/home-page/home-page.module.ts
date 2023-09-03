@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomePageComponent } from './home-page.component';
  
@@ -14,6 +14,8 @@ const routes :Routes = [{path:"",component:HomePageComponent}]
   imports: [
     CommonModule,RouterModule.forChild(routes),
     ProductCardModule
-  ]
+  ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
+
 })
 export class HomePageModule { }
