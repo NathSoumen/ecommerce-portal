@@ -4,18 +4,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SharedModulesComponent } from './features/shared-modules/shared-modules.component';
+import { NavigationModule } from './features/navigation/navigation.module';
+import { FooterComponent } from './features/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SharedModulesComponent,
+    FooterComponent,
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NavigationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
