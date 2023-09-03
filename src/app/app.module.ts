@@ -9,6 +9,8 @@ import { FooterComponent } from './features/footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpInterceptorService } from './utilities/services/interceptor/http-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -22,12 +24,7 @@ import { environment } from '../environments/environment';
     BrowserAnimationsModule,
     NavigationModule,
     NgbModule,
-    // ServiceWorkerModule.register('ngsw-worker.js', {
-    //   enabled: environment.production,
-    //   // Register the ServiceWorker as soon as the application is stable
-    //   // or after 30 seconds (whichever comes first).
-    //   registrationStrategy: 'registerWhenStable:30000'
-    // }),
+  
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable
@@ -35,7 +32,11 @@ import { environment } from '../environments/environment';
       registrationStrategy: 'registerWhenStable:30000'
     })
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: HttpInterceptorService,
+    multi: true, // This allows multiple interceptors if needed
+  },],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 
