@@ -26,8 +26,25 @@
     "paths": {
       "tslib" : ["node_modules/tslib/tslib.d.ts"]
 
-    }
+    },
+   
   },
+  "files": [
+    "src/main.ts",
+    "src/polyfills.ts",
+      "src/environments/environment.development.ts",
+    "src/environments/environment.ts"
+  ],
+  "include": [ 
+    "src/**/*.ts",
+    "src/**/*.d.ts" ,
+    "src/environments/environment.development.ts",
+    "src/environments/environment.ts"
+  ] ,
+  "exclude": [
+    "src/test.ts",
+    "**/*.spec.ts"
+  ],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
