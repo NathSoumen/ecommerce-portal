@@ -11,11 +11,16 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpInterceptorService } from './utilities/services/interceptor/http-interceptor.service';
+import { FullLayoutComponent } from './features/layout/full-layout/full-layout.component';
+import { NoLayoutComponent } from './features/layout/no-layout/no-layout.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
+    FullLayoutComponent,
+    NoLayoutComponent,
     
   ],
   imports: [

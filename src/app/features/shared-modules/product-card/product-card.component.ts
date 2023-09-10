@@ -20,5 +20,22 @@ export class ProductCardComponent implements OnChanges {
       this.imageUrl = this.product.imageUrl
     }
   } 
+  addTocart(){
+//     const foundToken = localStorage.getItem("token")
+//     if(foundToken) {
+// const token = JSON.parse(foundToken);
+// console.log("token",token);
+
+//     }
+       const foundProduct= localStorage.getItem("addedToCart")
+       if(foundProduct) {
+        const  addedToCartsProducts:Array<any> =  JSON.parse(foundProduct);
+        addedToCartsProducts.push(this.product)
+        localStorage.setItem("addedToCart",JSON.stringify(addedToCartsProducts))
+
+       }else{
+        localStorage.setItem("addedToCart",JSON.stringify([this.product]))
+       }
+  }
 
 }

@@ -5,7 +5,7 @@
 // WARNING - Values under "firebase" and value of "googleApiKey" needs to be replaced from your own accounts
 // If left as is, it firbase and google map related functionality will not work on LIVE instance.
 
-const url = 'http://127.0.0.1:5004'; // *local hiotron
+const url = 'http://127.0.0.1:3000'; // *local hiotron
 
 
 export const environment = {
