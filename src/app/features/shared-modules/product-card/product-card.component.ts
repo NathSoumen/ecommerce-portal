@@ -13,7 +13,7 @@ export class ProductCardComponent implements OnChanges {
   discountedPrice: number = 0;
   currencySymbal: string = '$';
   imageUrl: string = '';
-  constructor(private router:Router){}
+  constructor(private router: Router) {}
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['product']) {
       this.productName = this.product.name;
@@ -38,8 +38,8 @@ export class ProductCardComponent implements OnChanges {
       } else {
         localStorage.setItem('addedToCart', JSON.stringify([this.product]));
       }
-    }else {
-      this.router.navigate(["/credential/login"])
+    } else {
+      this.router.navigate(['/credential/login']);
     }
   }
 }
