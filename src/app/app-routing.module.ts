@@ -9,7 +9,8 @@ const routes: Routes = [
     component: FullLayoutComponent,
     children: [
       {
-        path: 'app',
+        pathMatch: 'full',
+        path: '',
         loadChildren: () =>
           import('./features/home-page/home-page.module').then(
             (m) => m.HomePageModule
@@ -28,21 +29,26 @@ const routes: Routes = [
     path: 'credential',
     component: NoLayoutComponent,
     children: [
-      {path:"",redirectTo:"login",pathMatch:'full'},
-      {path:"login",loadChildren:()=> import('./features/login-page/login-page.module').then((m)=>m.LoginPageModule)},
+      { path: '', redirectTo: 'login', pathMatch: 'full' },
+      {
+        path: 'login',
+        loadChildren: () =>
+          import('./features/login-page/login-page.module').then(
+            (m) => m.LoginPageModule
+          ),
+      },
 
       {
         path: 'signin',
         loadChildren: () =>
-          import('./features/add-to-cart-page/add-to-cart-page.module').then(
-            (m) => m.AddToCartPageModule
+          import('./features/register-user/register-user.module').then(
+            (m) => m.RegisterUserModule
           ),
       },
     ],
   },
-  {path:"**",redirectTo:""},
+  { path: '**', redirectTo: '' },
 ];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
