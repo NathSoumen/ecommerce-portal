@@ -1,44 +1,72 @@
-<div class="main-w3layouts wrapper" style="background: #243575;">
+<div class="main-w3layouts wrapper" style="background: #243575">
   <h1>Register new User Form</h1>
   <div class="main-agileinfo">
     <div class="agileits-top">
-      <form action="#" method="post">
+      <form #registerForm="ngForm">
         <input
           class="text"
           type="text"
           name="Username"
           placeholder="Username"
-          required=""
+          required
+          [(ngModel)]="username"
         />
         <input
           class="text email"
           type="email"
           name="email"
           placeholder="Email"
-          required=""
+          required
+          [(ngModel)]="email"
+        />
+        <input
+          class="text"
+          type="tel"
+          name="mobile"
+          placeholder="mobile"
+          required
+          [(ngModel)]="mobile"
         />
         <input
           class="text"
           type="password"
           name="password"
           placeholder="Password"
-          required=""
+          required
+          [(ngModel)]="password"
         />
         <input
           class="text w3lpass"
           type="password"
           name="password"
           placeholder="Confirm Password"
-          required=""
+          required
+          [(ngModel)]="confirmPassword"
         />
         <div class="wthree-text">
           <label class="anim">
-            <input type="checkbox" class="checkbox" required="" />
+            <input
+              type="checkbox"
+              class="checkbox"
+              required
+              [(ngModel)]="isAgreedCondition"
+            />
             <span>I Agree To The Terms & Conditions</span>
           </label>
           <div class="clear"></div>
         </div>
-        <input type="submit" value="SIGNUP" />
+        <button
+          id="submitbutton"
+          type="button"
+          (click)="onSubmit()"
+          >
+          <!-- [disabled]="
+            isAgreedCondition === false ||
+            registerForm.invalid ||
+            password !== confirmPassword
+          " -->
+          SIGNUP
+        </button>
       </form>
       <p>Don't have an Account? <a href="#"> Login Now!</a></p>
     </div>
