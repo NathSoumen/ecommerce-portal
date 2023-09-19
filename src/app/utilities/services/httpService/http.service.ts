@@ -26,4 +26,7 @@ export class HttpService {
   registerNewUser(data: registerCreditial) {
     return this.http.post(this.url + '/users/register', data);
   }
+  getCountry(){
+    return this.http.get(this.url+'/fetchExternalData/countryData')
+  }
 }

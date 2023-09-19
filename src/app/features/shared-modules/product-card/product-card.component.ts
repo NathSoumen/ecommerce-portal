@@ -39,6 +39,8 @@ export class ProductCardComponent implements OnChanges {
         localStorage.setItem('addedToCart', JSON.stringify([this.product]));
       }
     } else {
+      // const lastPageFound = localStorage.setItem("lastPage",);
+
       this.router.navigate(['/credential/login']);
     }
   }

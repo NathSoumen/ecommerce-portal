@@ -20,6 +20,23 @@ export class LoginPageComponent implements OnInit {
       })
       .subscribe((response: any) => {
         console.log('login', response);
+        console.log('login', response);
+        localStorage.setItem('token',response.token)
+        localStorage.setItem('currentUser',response.data)
+        const lastPageFound = localStorage.getItem("lastPage");
+        if(lastPageFound) {
+          const lastPage =JSON.parse(lastPageFound);
+          if(lastPage) {
+            this.route.navigate([lastPage]) 
+
+          }else {
+           this.route.navigate(["/"]) 
+          }
+
+        }else {
+          this.route.navigate(["/"]) 
+
+        }
       });
   }
   registerNewUser(){
