@@ -22,7 +22,9 @@ export class HttpService {
   login(data: LoginCreditial) {
     return this.http.post(this.url + '/users/login', data);
   }
-  getListOfProduct() {}
+  getListOfProduct() {
+    return this.http.get(this.url+"/items")
+  }
   registerNewUser(data: registerCreditial) {
     return this.http.post(this.url + '/users/register', data);
   }

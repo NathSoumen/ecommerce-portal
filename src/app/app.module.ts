@@ -10,11 +10,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { JwtModule } from "@auth0/angular-jwt";
+
+
 import { HttpInterceptorService } from './utilities/services/interceptor/http-interceptor.service';
 import { FullLayoutComponent } from './features/layout/full-layout/full-layout.component';
 import { NoLayoutComponent } from './features/layout/no-layout/no-layout.component';
 
-
+export function tokenGetter() {
+  return localStorage.getItem("access_token");
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +40,14 @@ import { NoLayoutComponent } from './features/layout/no-layout/no-layout.compone
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
-    })
+    }),
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ["example.com"],
+        disallowedRoutes: ["http://example.com/examplebadroute/"],
+      },
+    }),
   ],
   providers: [HttpClientModule,{
     provide: HTTP_INTERCEPTORS,

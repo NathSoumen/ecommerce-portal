@@ -21,8 +21,8 @@ export class LoginPageComponent implements OnInit {
       .subscribe((response: any) => {
         console.log('login', response);
         console.log('login', response);
-        localStorage.setItem('token',response.token)
-        localStorage.setItem('currentUser',response.data)
+        localStorage.setItem('access_token',JSON.stringify(response.token))
+        localStorage.setItem('currentUser',JSON.stringify(response.data))
         const lastPageFound = localStorage.getItem("lastPage");
         if(lastPageFound) {
           const lastPage =JSON.parse(lastPageFound);
