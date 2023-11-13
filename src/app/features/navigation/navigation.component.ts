@@ -1,5 +1,6 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgbDropdown } from '@ng-bootstrap/ng-bootstrap';
 import { UserProfile } from 'src/app/interfaces/user-profile';
 
 @Component({
@@ -24,5 +25,12 @@ export class NavigationComponent implements OnInit, OnChanges {
   logOut() {
     localStorage.clear();
     this.currentUser = undefined;
+  }
+  onHover(drop: NgbDropdown | any) {
+    console.log(drop);
+    // drop.open();
+  }
+  onMouseHoverout(drop: NgbDropdown | any) {
+    // drop.close();
   }
 }

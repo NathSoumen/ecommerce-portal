@@ -47,17 +47,25 @@
         <div class="col-12">
           <!-- Example single danger button -->
           <div ngbDropdown class="d-inline-block">
-            <button type="button" class="btn btn-outline-primary" id="dropdown1" ngbDropdownToggle>{{currentUser?.username}}</button>
-            <div ngbDropdownMenu aria-labelledby="dropdown1">
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              id="dropdown1"
+              ngbDropdownToggle
+              (mouseenter)="onHover(drop)"
+              (mouseleave)="onMouseHoverout(drop)"
+            >
+              {{ currentUser.username }}
+            </button>
+            <div ngbDropdownMenu aria-labelledby="dropdown1" #drop>
               <!-- items as buttons -->
               <button ngbDropdownItem>Edit profile</button>
               <button ngbDropdownItem>Order</button>
               <button ngbDropdownItem>Wishlist</button>
               <button ngbDropdownItem (click)="logOut()">Log out</button>
-  
             </div>
+          </div>
         </div>
-      </div>
       </div>
     </div>
   </div>

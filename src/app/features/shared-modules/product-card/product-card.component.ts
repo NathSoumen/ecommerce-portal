@@ -13,19 +13,21 @@ export class ProductCardComponent implements OnChanges {
   discountedPrice: number = 0;
   currencySymbal: string = '$';
   imageUrl: string = '';
+  category: any;
   constructor(private router: Router) {}
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['product']) {
-      this.productName = this.product.name;
+      this.productName = this.product.itemName;
       this.originalPrice = this.product.originalPrice;
       this.discountedPrice = this.product.discountedPrice;
-      this.imageUrl = this.product.imageUrl;
+      this.category = this.product.category;
+      this.imageUrl = this.product.image;
     }
   }
   addTocart() {
     const foundToken = localStorage.getItem('access_token');
     if (foundToken) {
-      const token = JSON.parse(foundToken)
+      const token = JSON.parse(foundToken);
       console.log('token', token);
       const foundProduct = localStorage.getItem('addedToCart');
       if (foundProduct) {

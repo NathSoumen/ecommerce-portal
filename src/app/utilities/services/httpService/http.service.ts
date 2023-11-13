@@ -22,13 +22,11 @@ export class HttpService {
   login(data: LoginCreditial) {
     return this.http.post(this.url + '/users/login', data);
   }
-  getListOfProduct() {
-    return this.http.get(this.url+"/items")
-  }
+
   registerNewUser(data: registerCreditial) {
     return this.http.post(this.url + '/users/register', data);
   }
-  getCountry(){
-    return this.http.get(this.url+'/fetchExternalData/countryData')
+  getCountry() {
+    return this.http.get(this.url + '/fetchExternalData/countryData');
   }
 }
