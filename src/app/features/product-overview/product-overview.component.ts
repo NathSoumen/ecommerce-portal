@@ -15,7 +15,7 @@ export class ProductOverviewComponent implements OnDestroy, OnInit {
     private productApi: ProductApiService
   ) {}
   ngOnDestroy(): void {
-    throw new Error('Method not implemented.');
+    console.log('Method not implemented.');
   }
   ngOnInit(): void {
     combineLatest(

@@ -421,4 +421,21 @@
     --bs-navbar-toggler-border-color: rgba(255, 255, 255, 0.1);
     --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
   }
-  
+
+
+  // 
+  ._3EOQ5Q {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+    justify-content: space-between;
+    padding: 12px 28px;
+    box-sizing: border-box;
+    z-index: 99999;
+    max-width: var(--lg-max-width);
+}
+._2msBFL, ._2msBFL ._38VF5e {
+  display: flex;
+  align-items: center;
+}
