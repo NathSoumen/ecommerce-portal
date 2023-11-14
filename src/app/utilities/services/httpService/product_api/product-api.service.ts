@@ -9,6 +9,9 @@ export class ProductApiService {
   url = environment.api_url;
 
   constructor(private http: HttpClient) {}
+  getProductDetails(pid: string) {
+    return this.http.get(this.url + '/items/' + pid);
+  }
   getListOfProduct() {
     return this.http.get(this.url + '/items');
   }

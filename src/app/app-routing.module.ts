@@ -23,6 +23,13 @@ const routes: Routes = [
             (m) => m.AddToCartPageModule
           ),
       },
+      {
+        path: 'item/:pid',
+        loadChildren: () =>
+          import('./features/product-overview/product-overview.module').then(
+            (m) => m.ProductOverviewModule
+          ),
+      },
     ],
   },
   {

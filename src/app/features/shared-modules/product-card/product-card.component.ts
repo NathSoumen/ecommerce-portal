@@ -46,4 +46,9 @@ export class ProductCardComponent implements OnChanges {
       this.router.navigate(['/credential/login']);
     }
   }
+  viewPrppductOverView() {
+    console.log('viewPrppductOverView');
+
+    this.router.navigate(['/item/' + this.product._id]);
+  }
 }
