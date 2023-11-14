@@ -10,6 +10,8 @@ import { isEmpty } from 'lodash';
 })
 export class ProductOverviewComponent implements OnDestroy, OnInit {
   product: any;
+  imageUrl: string = '';
+  priceDetails: any;
   constructor(
     private activateRoute: ActivatedRoute,
     private productApi: ProductApiService
@@ -26,8 +28,13 @@ export class ProductOverviewComponent implements OnDestroy, OnInit {
       if (isEmpty(params) === false) {
         this.productApi
           .getProductDetails(params['pid'])
-          .subscribe((response) => {
-            console.log('getProductDetails', response);
+          .subscribe((response: any) => {
+            if (response.success) {
+              console.log('getProductDetails', response);
+              this.product = response.data.product;
+              this.imageUrl = this.product.image;
+              this.priceDetails = response.data.priceDetails;
+            }
           });
       }
     });
