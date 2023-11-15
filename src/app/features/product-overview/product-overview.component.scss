@@ -14,3 +14,17 @@
   background: #fb641b;
   color: var(--color-white-bg);
 }
+
+.left {
+  width: 30%; /* Adjust the width as needed */
+  background-color: #f2f2f2;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.right {
+  flex-grow: 1;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: scroll; /* Enable vertical scrolling for the right side */
+}
